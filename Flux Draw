@@ -1,0 +1,424 @@
+//Counter for Number of Strokes for Exercise 1
+let i = 0;
+
+//Counter for Number of Lines for Exercise 2
+let j = 0;
+
+//Counter for Number of Clicks for Exercise 3
+let h = 0;
+
+let backMusic;
+
+
+//Screen Setup
+function setup() {
+
+  frameRate(30);
+  
+  fill('#FFFFFF');
+  createCanvas(400, 400);  
+  background('#589FD8');
+  textFont('Georgia');
+  textSize(40);
+  text('Flux Draw', 107, 75)
+  
+  fill('#14D9E2');
+  ellipse(200, 120, 50);
+  rect(160, 150, 80, 100);
+  rect(120, 150, 40, 100) 
+  rect(240, 150, 40, 100)    
+  rect(160, 250, 40, 100)
+  rect(200, 250, 40, 100)
+  
+  input = createInput('');
+  let col = color('#8BB0CF');
+  input.style('font-size', '24px', 'color', '#FFFFFF');
+  
+  enterButton = createButton('Enter')
+  enterButton.position(155, 360);
+  enterButton.style('font-size', '30px');
+  enterButton.style('background', col);
+  
+  
+
+  enterButton.mousePressed(screen1);
+  
+
+}
+
+//Exercise Menu Setup
+
+  function screen1() {
+    
+  enterButton.position(-100,-100);
+  createCanvas(400, 400);  
+  background('#8CE2A8');  
+  
+    
+  fill('#FFFEFE');  
+  textSize(40);
+  text('Exercises', 110, 50);
+
+
+  let colOne = color('#FAFEB6');
+  exerciseOneButton = createButton('Draw The Shape')
+  exerciseOneButton.position(75, 100);
+    
+  exerciseOneButton.style('font-size', '30px');
+  exerciseOneButton.style('background', colOne);
+
+  let colTwo = color('#9993F2');
+  exerciseTwoButton = createButton('Trace Letters')
+  exerciseTwoButton.position(100, 200);
+    
+  exerciseTwoButton.style('font-size', '30px');
+  exerciseTwoButton.style('background', colTwo);
+  
+  let colThree = color('#CB92B1');
+  exerciseThreeButton = createButton('Maze')
+  exerciseThreeButton.position(150, 300);
+
+  exerciseThreeButton.style('font-size', '30px');
+  exerciseThreeButton.style('background', colThree);
+    
+  exerciseOneButton.mousePressed(screen2);
+  exerciseTwoButton.mousePressed(screen3);
+  exerciseThreeButton.mousePressed(screen4);
+
+
+  }
+
+function draw() {
+
+}
+
+//Screens
+let counter = 0; 
+
+let randColor; 
+
+
+//Exercise 1 Setup
+function screen2() {
+  exerciseOneButton.position(-100,-100);
+  exerciseTwoButton.position(-100,-100);
+  exerciseThreeButton.position(-100,-100);
+  cnv = createCanvas(400, 400);  
+  background('#FAFEB6');  
+  
+  fill('#000000');    
+  textSize(20);
+  text('Completely Draw Over The Dotted Lines ', 20, 40);
+  text('In Less Than Five Strokes!', 85, 65);
+  
+
+  
+    fill('#FFFFFF');    
+  rect(50, 75, 300,250);
+  
+  
+        stroke('#4CAF50');
+  strokeWeight(10);
+  line(200, 200, 210, 180);
+  line(200, 200, 195, 190);
+    strokeWeight(1);
+  
+  exitButton = createButton('Exit');  
+  let colExit = color(255,255,255);
+
+  exitButton.position(160, 350);
+
+  exitButton.style('font-size', '30px');
+  exitButton.style('background', colExit);
+
+  exitButton.mousePressed(removeExit);
+  
+  
+
+  
+  setLineDash([5, 5]); 
+  
+
+  stroke('#000000');
+  rect(80, 90, 75, 75);
+  ellipse(275, 130, 80);
+  triangle(80, 310, 155, 310, 115, 220);
+  star(275, 270, 25, 45, 5);
+  
+  i = 0;
+
+  cnv.mousePressed(ex);
+
+
+}
+
+//Exercise 2 Setup
+function screen3() {
+  exerciseOneButton.position(-100,-100);
+  exerciseTwoButton.position(-100,-100);
+  exerciseThreeButton.position(-100,-100);
+  cnvTwo = createCanvas(400, 400);  
+  background('#9993F2'); 
+  
+  fill('#000000');   
+  textSize(35);
+  text('Trace Letters', 95, 40);
+  textSize(30);
+  text('In Less Than 15 Lines!', 50, 70);
+    fill('#FFFFFF');   
+    rect(50, 75, 300,250);
+  
+          stroke('#4CAF50');
+  strokeWeight(10);
+  line(200, 200, 210, 180);
+  line(200, 200, 195, 190);
+    strokeWeight(1);
+  stroke('#000000');
+  
+  exitTwo = createButton('Exit')
+  let colExitTwo = color(255,255,255);
+
+  exitTwo.position(160, 350);
+
+  exitTwo.style('font-size', '30px');
+  exitTwo.style('background', colExitTwo);
+  exitTwo.mousePressed(removeExitTwo);
+  
+  setLineDash([5, 5]); 
+  //Letter A
+  line(60, 120, 80, 90);
+  line(80, 90, 100, 120);
+  line(70, 105, 90, 105);
+  
+  //Letter C
+  line(160, 150, 160, 181);
+  line(160, 150, 190, 150);
+  line(160, 181, 190, 181);
+  
+  //Letter E
+  line(300, 200, 300, 231);
+  line(300, 200, 330, 200);
+  line(300, 215.5, 330, 215.5);
+  line(300, 231, 330, 231);
+  
+  //Letter F
+  line(90, 280, 90, 320);
+  line(90, 280, 120, 280);
+  line(90, 300, 120, 300);
+  
+  //Letter H
+  line(250, 105, 250, 145);
+  line(270, 105, 270, 145);
+  line(250, 125, 270, 125);
+  
+  //Letter K
+  line(200, 250, 200, 290);
+  line(200, 270, 220, 250);
+  line(200, 270, 220, 290);
+  
+  //Letter T
+  line(90, 200, 90, 240);
+  line(70, 200,110, 200);
+
+  j = 0;
+
+  cnvTwo.mousePressed(ex2);
+
+  
+  
+}
+//Exercise 3 Setup
+function screen4() {
+  exerciseOneButton.position(-100,-100);
+  exerciseTwoButton.position(-100,-100);
+  exerciseThreeButton.position(-100,-100);
+  cnvThree = createCanvas(400, 400);  
+  background('#CB92B1');  
+
+  fill('#000000');  
+  textSize(20);
+  text('Finish the Maze in One Click!', 70, 50);
+    fill('#FFFFFF');  
+    rect(50, 75, 300,250);
+  
+  exitThree = createButton('Exit')
+  let colExitThree = color(255,255,255);
+
+  exitThree.position(160, 350);
+
+  exitThree.style('font-size', '30px');
+  exitThree.style('background', colExitThree);
+  exitThree.mousePressed(removeExitThree);
+
+  
+  //Maze Setup
+  fill('#FFC107');  
+
+  line(90, 125, 280, 125);
+  line(90, 125, 90, 305);
+  line(110, 305, 300, 305);
+  line(300, 305, 300, 125);
+  line(180, 200, 220, 200);
+  line(180, 200, 180, 220);
+  line(180, 220, 200, 220);
+
+  line(90, 285, 130, 285);
+  
+  line(110, 265, 110, 145);
+  
+  line(150, 265, 150, 205);
+  
+  line(200, 180, 200, 200);
+  
+  line(200, 180, 220, 180);
+ 
+  line(200, 220, 200, 240);
+
+  line(200, 240, 180, 240);
+
+  line(220, 200, 220, 265);
+
+  line(220, 265, 150, 265);
+  
+  line(110, 205, 150, 205);
+
+  line(160, 285, 270, 285);
+  
+  line(110, 145, 175, 145);
+  
+  line(280, 150, 280, 265);
+  
+  line(260, 130, 260, 265);  
+
+  line(240, 145, 240, 265);
+  
+  line(200, 145, 240, 145);
+
+  line(180, 160, 180, 200);
+
+  line(150, 170, 150, 210);
+
+  line(130, 160, 130, 265);
+
+  line(180, 160, 240, 160);
+
+  line(280, 150, 280, 300);
+  
+  line(150, 285, 280, 285);
+  
+  //Goal Setup
+  star(190, 210, 5, 10, 5);  
+  
+  
+  
+    h = 0;
+
+  cnvThree.mousePressed(ex3);
+  
+}
+//Remove Buttons
+function removeExit() {
+  exitButton.position(-100,-100);
+  i = -100;
+  screen1();
+  console.clear();
+}
+
+function removeExitTwo() {
+  exitTwo.position(-100,-100);
+  j = -100;
+  screen1();
+}
+
+function removeExitThree(){
+  exitThree.position(-100,-100);
+  h = -100;
+  screen1();
+}
+
+//Drawing Setup
+function mouseDragged() {
+    randColor = color(random(255), random(255), random(255));
+  fill(randColor);
+	ellipse(mouseX, mouseY, 3);
+  
+    if (counter > 19) {
+
+    randColor = color(random(255), random(255), random(255));
+
+
+    counter = 0;
+    }
+  counter = counter +1;
+}
+
+//Dashed Lines Setup
+function setLineDash(pattern) {
+  drawingContext.setLineDash(pattern);
+}
+
+function star(x, y, radius1, radius2, npoints) {
+  let angle = TWO_PI / npoints;
+  let halfAngle = angle / 2.0;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius2;
+    let sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
+
+//Game Over Exercise 1
+function ex() {
+    fill(0);
+
+  if (mouseIsPressed === true) {
+    i = i + 1;
+  }
+  
+  if (i === 5) {
+  rect(50, 75, 300,250);
+    fill(255);
+    textSize(30);
+    text("Game Over Try Again!", 52, 200);
+
+  }
+}
+
+//Game Over Exercise 2
+function ex2() {
+    fill(0);
+
+  if (mouseIsPressed === true) {
+    j = j + 1;
+  }
+  
+  if (j === 15) {
+  rect(50, 75, 300,250);
+    fill(255);
+    textSize(30);
+    text("Game Over Try Again!", 52, 200);
+
+  }
+}
+
+//Game Over Exercise 3
+function ex3() {
+    fill(0);
+
+  if (mouseIsPressed === true) {
+    h = h + 1;
+  }
+  
+  if (h === 2) {
+  rect(50, 75, 300,250);
+    fill(255);
+    textSize(30);
+    text("Game Over Try Again!", 52, 200);
+
+  }
+}
